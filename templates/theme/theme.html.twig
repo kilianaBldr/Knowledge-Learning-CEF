@@ -21,7 +21,7 @@
                     <p>Prix : {{ cursus.price }} €</p>
                     <a href=""{{ path('app_login') }} class="btn-purchased">Connectez-vous pour acheter ce cursus</a>
                 {% endif %}
-                <a href="#" class="btn-purchased">Voir les leçons disponibles</a>
+                <a href="{{ path('app_cursus_show', {'id': cursus.id}) }}" class="btn-purchased">Voir les leçons disponibles</a>
             </div>
         {% else %}
             <p>Aucun cursus disponible pour ce thème.</p>

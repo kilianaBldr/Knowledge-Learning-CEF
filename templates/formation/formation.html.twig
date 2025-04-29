@@ -10,7 +10,7 @@
             <div class="formation-card">
                 <h2>{{ theme.name }}</h2>
                 <p>Explorez nos cursus dédiés au thème {{ theme.name }}</p>
-                <a href="#" class="btn-formation">Voir les cursus</a>
+                <a href="{{ path('app_theme_show', {'id':theme.id}) }}" class="btn-formation">Voir les cursus</a>
             </div>
         {% endfor %}
     </div>

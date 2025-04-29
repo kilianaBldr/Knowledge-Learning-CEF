@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leçon {% endblock %}
+
+{% block body %}
+    <div>
+    <h1>Leçons du cursus : {{ cursus.name }}</h1>
+        <div class="cursus-container">
+            {% for lessons in cursus.lessons %}
+                <div class="cursus-card">
+                    <h3>{{ lessons.name }}</h3>
+                    {% if app.user %}
+                        {% if lessons in app.user.purchasedLessons %}
+                            <a href="#" class="btn">Accéder à la leçon</a>
+                        {% else %}
+                            <p>Prix : {{ lessons.price }} €</p>
+                            <p><em>Achetez cette leçon pour y accéder.</em></p>
+
+                            <a href="#" class="btn">Ajouter au panier</a>
+
+                        {% endif %}
+                    {% else %}
+                        <p>Prix : {{ lessons.price }} €</p>
+                        <a href="{{ path('app_login') }}" class="btn">Connectez-vous pour acheter cette leçon</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        <div>
+    </div>
+        <a href="{{ path('app_theme_show', {'id': cursus.theme.id}) }}" class="btn-cursus">Retour au cursus</a>
+{% endblock %}
