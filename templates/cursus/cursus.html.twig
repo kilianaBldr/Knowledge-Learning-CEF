@@ -11,7 +11,7 @@
                     <h3>{{ lessons.name }}</h3>
                     {% if app.user %}
                         {% if lessons in app.user.purchasedLessons %}
-                            <a href="#" class="btn">Accéder à la leçon</a>
+                            <a href="{{ path('app_lesson_show', {'id': lessons.id}) }}" class="btn">Accéder à la leçon</a>
                         {% else %}
                             <p>Prix : {{ lessons.price }} €</p>
                             <p><em>Achetez cette leçon pour y accéder.</em></p>
