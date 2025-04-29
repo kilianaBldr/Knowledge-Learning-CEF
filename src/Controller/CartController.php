@@ -16,7 +16,7 @@ use App\Service\StripeService;
 final class CartController extends AbstractController
 {
     #[Route('/cart', name: 'app_cart_show')]
-    public function show(CartService $cartService, EntityManagerInterface $em
+    public function show(CartService $cartService, EntityManagerInterface $em, StripeService $stripeService
     ): Response
     {
         $cart = $cartService->getCart();
@@ -29,12 +29,45 @@ final class CartController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        $lineItems = [];
 
+        foreach ($lessons as $lesson) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => $lesson->getName(),
+                    ],
+                    'unit_amount' => $lesson->getPrice() * 100,
+                ],
+                'quantity' => 1,
+            ];
+        }
+
+        foreach ($cursuses as $cursus) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => $cursus->getName(),
+                    ],
+                    'unit_amount' => $cursus->getPrice() * 100,
+                ],
+                'quantity' => 1,
+            ];
+        }
+
+        $session = $stripeService->createCheckoutSession(
+            $lineItems,
+            $this->generateUrl('app_stripe_success', [], 0),
+            $this->generateUrl('app_cart_show', [], 0),
+        );
 
         return $this->render('cart/panier.html.twig', [
             'lessons' => $lessons,
             'cursuses' => $cursuses,
             'total' => $total,
+            'checkoutUrl' => $session->url
 
         ]);
     }

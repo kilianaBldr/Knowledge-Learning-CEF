@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="error-stripe">
+        <h1>Erreur du paiment</h1>
+        <p>Malheureusement, votre paiment a échoué.</p>
+        <a href="{{ path('app_cart_show') }}" class="btn">Retourner au panier</a>
+    </div>
+{% endblock %}
