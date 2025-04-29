@@ -1,0 +1,37 @@
+.home{
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid #00497c;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+}
+h1{
+    margin: 0 0 2rem 0;
+    text-align: center;
+}
+
+.text-home {
+    margin: 2rem 0 2rem 0;
+}
+
+.btn-home{
+    width: 25%;
+    background-color: #00497c;
+    color: #fff;
+    margin-top: 1rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-home:hover{
+    background-color: #384050;
+    color: white;
+}
