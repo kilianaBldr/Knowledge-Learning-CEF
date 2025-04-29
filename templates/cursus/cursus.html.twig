@@ -16,8 +16,7 @@
                             <p>Prix : {{ lessons.price }} €</p>
                             <p><em>Achetez cette leçon pour y accéder.</em></p>
 
-                            <a href="#" class="btn">Ajouter au panier</a>
-
+                            <a href="{{ path('app_cart_add_lesson', { id:lessons.id }) }}" class="btn">Ajouter au panier</a>
                         {% endif %}
                     {% else %}
                         <p>Prix : {{ lessons.price }} €</p>
