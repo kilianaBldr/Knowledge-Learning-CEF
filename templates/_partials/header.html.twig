@@ -1,0 +1,18 @@
+<header>
+        <figure>
+            <img src="{{ asset('images/logo.jpg') }}" alt="Logo Knowledge">
+            <figcaption>Formez-vous à votre rythme et obtenez vos certifications Knowledge Learning</figcaption>
+        </figure>
+        <nav>
+            <a href="{{ path('app_home') }}">Accueil</a>
+            <a href="{{ path('app_formations') }}">Formations</a>
+            {% if  is_granted('IS_AUTHENTICATED_FULLY')%}
+                <a href="#">Certificats</a>
+                <a href="#">Panier</a>
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            {% else %}
+            <a href="{{ path('app_login') }}">Se Connecter</a>
+            <a href="{{ path('app_register') }}">S'inscrire</a>
+            {% endif %}
+        </nav>
+    </header>

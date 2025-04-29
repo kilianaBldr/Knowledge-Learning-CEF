@@ -5,6 +5,8 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="{{ asset('images/Favicon.jpg') }}">
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/header.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/footer.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/register.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/login.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
@@ -17,6 +19,7 @@
         {% endblock %}
     </head>
 
+    {% include '_partials/header.html.twig'%}
 
     {% include '_partials/_flash.html.twig'%}
 
@@ -25,5 +28,7 @@
             {% block body %}{% endblock %}
         </main>
     </body>
+
+    {% include '_partials/footer.html.twig'%}
 
 </html>
