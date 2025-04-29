@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Certifications{% endblock %}
+
+{% block body %}
+    <h1>Mes Certifications Knowledge Learning</h1>
+
+    {% if themes is empty %}
+        <p>Vous n'avez encore obtenu aucune certification.</p>
+    {% else %}
+        <div class="certification-container">
+            {% for themeData in themes %}
+                <div class="certification-card">
+                    <h2>Thème : {{ themeData.theme.name }}</h2>
+                    <p>Cursus validés :</p>
+                    <ul>
+                        {% for cursus in themeData.cursus %}
+                            <li>{{ cursus.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ path('app_certification_show', {'id': certification.id}) }}" class="btn">Voir la certification</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <a href="{{ path('app_home') }}" class="btn">Retour à l'accueil</a>
+{% endblock %}

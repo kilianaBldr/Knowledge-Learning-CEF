@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Certification{% endblock %}
+
+{% block body %}
+    <h1>Certification Officielle</h1>
+    <p>Félicitations {{ app.user.name }} </p>
+    <p>Vous avez validé le thème <strong>{{ theme.name }}</strong></p>
+
+    <p>Vous obtenez la certification officielle Knowledge Learning.</p>
+
+    <a href="{{ path('app_certifications') }}" class="btn">Retour aux certifications</a>
+{% endblock %}
