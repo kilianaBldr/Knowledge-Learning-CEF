@@ -1,0 +1,39 @@
+header{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+img {
+    align-items: center;
+    width: 4rem;
+}
+figcaption{
+    padding-left: 1rem;
+    color:#00497c;
+}
+
+nav{
+    display: flex;
+    justify-content:  space-evenly;
+    width: 35%;
+}
+figure{
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    color:#0074c7;
+    text-decoration: none;
+}
+
+nav a:hover{
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color:#f1f8fc;
+    background-color: #384050;
+}
