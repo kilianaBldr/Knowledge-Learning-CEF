@@ -1,0 +1,32 @@
+.certification-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.certification-card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.certification-card h3 {
+    color: #333;
+}
+
+.certification-card p {
+    margin: 5px 0;
+}
+
+.btn {
+    background-color: #00497c;
+    color: #fff;
+    padding: 4px 8px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #384050;
+}
