@@ -1,0 +1,118 @@
+/* Conteneur principal du panier */
+.cart-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f1f8fc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.1);    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Titre principal */
+.cart-container h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Liste des items */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Carte d'un item (leçon ou cursus) */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #222;
+}
+
+.cart-item .price {
+    font-weight: bold;
+    color: #666;
+}
+
+.cart-item .remove-btn {
+    padding: 6px 12px;
+    background-color: #cd2c2e;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-item .remove-btn:hover {
+    text-decoration: underline;
+    background-color: #e74c3c;
+}
+
+/* Total du panier */
+.cart-total {
+    text-align: right;
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Boutons d'action */
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cart-actions a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #00497c;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.cart-actions a:hover {
+    background-color: #384050;
+}
+.cart-actions .btn-empty-card {
+    padding: 6px 12px;
+    background-color: #384050;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-actions .btn-empty-card:hover {
+    background-color: #00497c;
+}
+
+.cart-actions .btn-validate-cart {
+    padding: 6px 12px;
+    background-color: #82b864;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-actions .btn-validate-cart:hover {
+    background-color: #608c48;
+}
