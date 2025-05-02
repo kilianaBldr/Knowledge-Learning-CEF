@@ -51,7 +51,6 @@ final class PaymentController extends AbstractController
     #[Route('/payment/error', name: 'app_stripe_error')]
     public function error(): Response 
     {
-        $this->addFlash('error', 'Le paiment a échoué. Veuillez réessayer.');
         return $this->render('payment/error.html.twig');
     }
 

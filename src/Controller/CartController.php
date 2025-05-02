@@ -57,10 +57,11 @@ final class CartController extends AbstractController
             ];
         }
 
+    
         $session = $stripeService->createCheckoutSession(
             $lineItems,
             $this->generateUrl('app_stripe_success', [], 0),
-            $this->generateUrl('app_cart_show', [], 0),
+            $this->generateUrl('app_stripe_error', [], 0),
         );
 
         return $this->render('cart/panier.html.twig', [
