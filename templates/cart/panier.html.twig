@@ -35,7 +35,7 @@
         <div class="cart-actions">
             <a href="{{ path('app_cart_clear') }}" class="btn-empty-card">Vider le panier</a>
             {% if lessons is not empty or cursuses is not empty%}
-                <a href="#" class="btn-validate-cart">Valider le panier</a>
+                <a href="{{ checkoutUrl }}" class="btn-validate-cart">Valider le panier</a>
             {% endif %}
         </div>
     </div>
