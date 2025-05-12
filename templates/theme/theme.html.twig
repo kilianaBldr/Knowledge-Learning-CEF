@@ -14,7 +14,14 @@
                         <a href="{{ path('app_cart_add_cursus', { id: cursus.id }) }}" class="btn-purchased">Ajouter au panier</a>
                         
                     {% else %}
-                        <p><em>Cursus déjà acheté</em></p>
+                        {% if progress is not null %}
+                            <div class="progress_cursus-container">
+                                <div class="progress_cursus-bar">
+                                    <div class="progress_cursus-fill" style="width: {{ progress }}%"></div>
+                                </div>
+                                <p class="progress_cursus-text">{{ progress }}%</p>
+                            </div>
+                        {% endif %}
                     {% endif %}
                 {% else %}
                     <p>Prix : {{ cursus.price }} €</p>

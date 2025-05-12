@@ -1,32 +1,95 @@
+.certif-title {
+    text-align: center;
+    margin: 30px 0;
+    color: #384050;
+    font-size: 2rem;
+}
+
+.no-certif {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
 .certification-container {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 20px;
 }
 
 .certification-card {
-    background-color: #f8f8f8;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    padding: 20px;
+    background: #fdfdfd;
+    width: 25%;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.certification-card h3 {
-    color: #333;
+.theme-name {
+    text-align: center;
+    margin: 10px 0 18px 0;
+    color: #384050;
 }
 
-.certification-card p {
-    margin: 5px 0;
+.progress_certif-container {
+    margin: 10px 0;
+    width: 50%;
 }
 
-.btn {
+.progress_certif-bar {
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+}
+
+.progress_certif-fill {
+    background-color: #82b864;
+    height: 100%;
+}
+
+.progress_certif-text {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.certif-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #00497c;
-    color: #fff;
-    padding: 4px 8px;
+    color: white;
+    padding: 10px 15px;
     text-decoration: none;
+    font-weight: bold;
     border-radius: 5px;
 }
 
-.btn:hover {
+.certif-btn:hover {
     background-color: #384050;
+}
+
+.back-btn {
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    width: fit-content;
+    background: #384050;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background-color: #00497c;
 }

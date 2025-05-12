@@ -57,11 +57,16 @@ final class CartController extends AbstractController
             ];
         }
 
+        if (empty($lineItems)) {
+            $this->addFlash('error', 'Votre panier est vide.');
+            return $this->redirectToRoute('app_cart_show');
+        }
+
     
         $session = $stripeService->createCheckoutSession(
             $lineItems,
             $this->generateUrl('app_stripe_success', [], 0),
-            $this->generateUrl('app_stripe_error', [], 0),
+            $this->generateUrl('app_cart_show', [], 0),
         );
 
         return $this->render('cart/panier.html.twig', [

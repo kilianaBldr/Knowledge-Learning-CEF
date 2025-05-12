@@ -27,9 +27,9 @@
 }
 
 /* Titre du cursus */
-.theme-card h3 {
+.theme-card h2 {
     margin-bottom: 15px;
-    color: #333;
+    color: #384050;
     font-size: 1.4em;
 }
 
@@ -38,6 +38,29 @@
     font-size: 1em;
     color: #555;
     margin-bottom: 20px;
+}
+
+.progress_cursus-container {
+    margin: 10px 0;
+    width: 50%;
+}
+
+.progress_cursus-bar {
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+}
+
+.progress_cursus-fill {
+    background-color: #82b864;
+    height: 100%;
+}
+
+.progress_cursus-text {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
 }
 
 /* Bouton */

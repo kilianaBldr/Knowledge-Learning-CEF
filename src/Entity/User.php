@@ -13,6 +13,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Entity\Certification;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'Cette adresse email est déjà utilisée.')]
@@ -60,6 +61,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\JoinTable(name: 'user_cursus')]
     private Collection $purchasedCursus;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Certification::class)]
+    private Collection $certifications;
+
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\NotNull()]
     private ?\DateTimeImmutable $createdAt;
@@ -74,6 +78,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->updatedAt = new \DateTimeImmutable();
         $this->purchasedLessons = new ArrayCollection();
         $this->purchasedCursus = new ArrayCollection();
+        $this->certifications = new ArrayCollection();
         $this->roles = ['ROLE_USER'];
         $this->isVerified = false;
         //Définit une expiration du token de confirmation dans 24h
@@ -231,6 +236,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getCertifications(): Collection 
+    {
+        return $this->certifications;
+    }
+
+    public function addCertification(Certification $certification): static
+    {
+        if (!$this->certifications->contains($certification)) {
+            $this->getCertifications[] = $certification;
+            $certification->setUser($this);
+        }
+        return $this;
+    }
+
+    public function removeCertification(Certification $certification): static
+    {
+        if ($this->certifications->removeElement($certification)) {
+            if ($certification->getUser() === $this) {
+                $certification->getUser(null);
+            }
+        }
+        return $this;
+    }
 
     public function setCreatedAt(?\DateTimeImmutable $createdAt): static
     {

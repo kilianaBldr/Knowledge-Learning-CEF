@@ -51,6 +51,8 @@ class LessonController extends AbstractController
             $certification = new Certification();
             $certification->setUser($user);
             $certification->setLesson($lesson);
+            $certification->setCursus($lesson->getCursus());
+            $certification->setTheme($lesson->getCursus()->getTheme());
             $certification->setDateObtained(new \DateTimeImmutable());
 
             $em->persist($certification);
@@ -58,7 +60,7 @@ class LessonController extends AbstractController
 
             $this->addFlash('success', 'Leçon validée avec succès.');
         } else {
-            $this->addFlash('info', 'Cette leçon es déjà validée.');
+            $this->addFlash('info', 'Cette leçon est déjà validée.');
         }
         return $this->redirectToRoute('app_cursus_show', ['id' => $lesson->getCursus()->getId()]);
     }
