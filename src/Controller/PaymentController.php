@@ -22,8 +22,12 @@ final class PaymentController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $lessons = $cartService->getLessons($em);
-        $cursuses = $cartService->getCursuses($em);
+        $cart = $cartService->getCart();
+        $lessonIds = $cart['lessons'] ?? [];
+        $cursusIds = $cart['cursuses'] ?? [];
+
+        $lessons = $lessonsRepo->findBy(['id' => $lessonIds]);
+        $cursuses = $cursusRepo->findBy(['id' => $cursusIds]);
 
         foreach ($lessons as $lesson) {
             if (!$user->getPurchasedLessons()->contains($lesson)) {

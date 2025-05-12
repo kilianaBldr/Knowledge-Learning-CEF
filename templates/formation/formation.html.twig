@@ -10,6 +10,19 @@
             <div class="formation-card">
                 <h2>{{ theme.name }}</h2>
                 <p>Explorez nos cursus dédiés au thème {{ theme.name }}</p>
+
+                {% if themeProgress[theme.id] is defined %}
+                    <div class="progress_theme-container">
+                        <div class="progress_theme-bar">
+                            <div class="progress_theme-fill" style="width: {{ themeProgress[theme.id].progress }}%;"></div>
+                        </div>
+                        <p class="progress_theme-text">{{ themeProgress[theme.id].progress }}%</p>
+
+                        {% if themeProgress[theme.id].certified %}
+                            <p class="certif-message">Certification Obtenue</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
                 <a href="{{ path('app_theme_show', {'id':theme.id}) }}" class="btn-formation">Voir les cursus</a>
             </div>
         {% endfor %}
