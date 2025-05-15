@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un utilisateur{% endblock %}
+
+{% block body %}
+    <div class="edit-user-container">
+        <h1>Modifier l'utilisateur : {{ user.name }}</h1>
+
+        <div class="edit-user-card">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+
+                <p class="edit-date">
+                    Créé le : {{ user.createdAt|date('d/m/Y H:i') }}<br>
+                    Mis à jour : {{ user.updatedAt|date('d/m/Y H:i') }}
+                </p>
+
+                <div class="form-group">
+                    <table class="roles-table">
+                        <thead>
+                            <tr>
+                                <th>Rôles</th>
+                                <th>Sélections</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for choice in form.roles %}
+                                <tr>
+                                    <td>{{ choice.vars.label }}</td>
+                                    <td>{{ form_widget(choice) }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                <table class="verify-table">
+                    <thead>
+                        <tr>
+                            <th>Compte Vérifié</th>
+                            <th>Sélection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ce compte est-il vérifié ?</td>
+                            <td>{{ form_widget(form.isVerified) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.purchasedCursus) }}
+                    {{ form_widget(form.purchasedCursus) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.purchasedLessons) }}
+                    {{ form_widget(form.purchasedLessons) }}
+                </div>
+
+                <button class="btn-userAdmin btn-update">Mettre à jour</button>
+            {{ form_end(form) }}
+
+
+            <form method="post" action="{{ path('admin_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Confirmer la suppression ?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                <button class="btn-userAdmin btn-delete">Supprimer</button>
+            </form>
+            <a href="{{ path('admin_user_index') }}" class="btn-userAdmin btn-back">Retour à la liste</a>
+        </div>
+    </div>
+
+{% endblock %}
