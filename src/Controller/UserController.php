@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/admin/user')]
 final class UserController extends AbstractController
 {
-    #[Route(name: 'admin_user_index', methods: ['GET'])]
+    #[Route(name: 'admin_user_dashboard', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('adminUser/index.html.twig', [

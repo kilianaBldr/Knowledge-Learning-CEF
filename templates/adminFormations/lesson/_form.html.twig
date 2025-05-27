@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.cursus) }}
+    {{ form_row(form.description) }}
+    {% if lesson.videoFile %}
+        <div class="current-video">
+            <p><strong>Vidéo actuelle :</stong></p>
+            <video width="500" controls>
+                <source src="{{ asset(lesson.videoFile) }}" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
+        </div>
+    {% endif %}
+    {{ form_row(form.videoFile) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.price) }}
+    
+    <button class="btn-userAdmin btn-update">{{ button_label }}</button>
+{{ form_end(form) }}

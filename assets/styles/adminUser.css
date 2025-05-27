@@ -102,6 +102,7 @@
 }
 
 .delete-btn {
+    text-decoration: none;
     background-color: #f1f8fc;
     border: none;
     color: #0074c7;
@@ -331,6 +332,7 @@
 }
 
 .btn-update {
+    margin: 1rem;
     background-color: #82b864;
     cursor: pointer;
     color: white;

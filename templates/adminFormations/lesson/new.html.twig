@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une Leçon{% endblock %}
+
+{% block body %}
+    <div class="admin-container">
+        <h1 class="admin-title">Créer une nouvelle Leçon</h1>
+
+        {{ include('adminFormations/lesson/_form.html.twig', {'button_label': 'Créer'}) }}
+
+        <a href="{{ path('admin_lesson_index') }}" class="btn-back">Retour</a>
+    </div>
+{% endblock %}

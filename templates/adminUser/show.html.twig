@@ -3,7 +3,7 @@
 {% block title %}Profil de {{ user.name }}{% endblock %}
 
 {% block body %}
-    <h1 class="admin-title">Modifier l'utilisateur</h1>
+    <h1 class="admin-title">Profil de l'utilisateur</h1>
 
     <div class="user-profile">
         <table class="profile-table">
@@ -39,13 +39,10 @@
             </tbody>
         </table>
         <div class="action-buttons">
-            <a href="{{ path('admin_user_index') }}" class="btn-userAdmin btn-back">Retour à la liste</a>
+            <a href="{{ path('admin_user_dashboard') }}" class="btn-userAdmin btn-back">Retour à la liste</a>
             <a href="{{ path('admin_user_edit', {'id': user.id}) }}" class="btn-userAdmin btn-edit">Modifier</a>
             {{ include('adminUser/_delete_form.html.twig') }}
         </div>
     </div>
-    
-
-   
 
 {% endblock %}

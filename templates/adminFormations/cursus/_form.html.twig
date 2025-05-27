@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.price) }}
+    {{ form_row(form.theme) }}
+    {{ form_widget(form._token) }}
+    
+    <button class="btn-userAdmin btn-update">{{ button_label }}</button>
+{{ form_end(form) }}

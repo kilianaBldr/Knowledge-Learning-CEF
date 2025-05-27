@@ -10,9 +10,10 @@
     padding: 2rem;
     text-align: center;
 }
-h1{
+.title-home{
     margin: 0 0 2rem 0;
     text-align: center;
+    color: #384050;
 }
 
 .text-home {

@@ -14,4 +14,10 @@ final class AdminController extends AbstractController
     {
         return $this->render('admin/admin.html.twig');
     }
+
+    #[Route('/admin/formations', name: 'admin_formation_dashboard')]
+    public function formationDashboard(): Response
+    {
+        return $this->render('adminFormations/formation.html.twig');
+    }
 }

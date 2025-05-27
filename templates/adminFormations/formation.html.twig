@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Formations{% endblock %}
+
+{% block body %}
+    <div class="admin-dashboard-container">
+        <h1 class="admin-title">Espace de gestion des Formations</h1>
+        <p class="admin-subtitle">Bienvenue dans l'espace des Thèmes, Cursus et Leçons.</p>
+
+        <a href="{{ path('admin_theme_index') }}" class="btn-admin-dashboard">Gérer les Thèmes</a>
+        <a href="{{ path('admin_cursus_index') }}" class="btn-admin-dashboard">Gérer les Cursus</a>
+        <a href="{{ path('admin_lesson_index') }}" class="btn-admin-dashboard">Gérer les Leçons</a>
+
+        <a href="/admin" class="btn-back-admin">Retour au tableau de bord</a>
+    </div>
+{% endblock %}

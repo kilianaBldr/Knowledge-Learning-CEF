@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Thèmes{% endblock %}
+
+{% block body %}
+    <h1>Liste des Thèmes</h1>
+    <div>
+        <a href="{{ path('admin_theme_new') }}" class="create-button">+ Créer un nouveau Thème</a>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for theme in themesList %}
+                    <tr>
+                        <td>{{ theme.name }}</td>
+                        <td>
+                            <a href="{{ path('admin_theme_edit', {id: theme.id}) }}" class="action-link">Modifier</a>
+                            <form method="post" action="{{ path('admin_theme_delete', {id: theme.id}) }}" style="display:inline;" onsubmit="return confirm('Etes-vous sûr ?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn-userAdmin btn-delete">Supprimer</button>
+                            </form>
+                        </td> 
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">Aucun thème trouvé.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('admin_formation_dashboard') }}" class="btn-back-admin">Retour</a>
+    </div>
+
+{% endblock %}

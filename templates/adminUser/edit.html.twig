@@ -77,7 +77,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
                 <button class="btn-userAdmin btn-delete">Supprimer</button>
             </form>
-            <a href="{{ path('admin_user_index') }}" class="btn-userAdmin btn-back">Retour à la liste</a>
+            <a href="{{ path('admin_user_dashboard') }}" class="btn-userAdmin btn-back">Retour à la liste</a>
         </div>
     </div>
 
