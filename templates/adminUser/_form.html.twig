@@ -1,0 +1,65 @@
+<div class="form-wrapper">
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.email, 'E-mail') }}
+        {{ form_widget(form.email) }}
+        </div>
+
+    <div class="form-group">
+        {{ form_label(form.name, "Nom de l'utilisateur") }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    <table class="roles-table">
+        <thead>
+            <tr>
+                <th>Rôles</th>
+                <th>Sélections</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Utilisateur</td>
+                <td><input type="checkbox" name="user[roles][]" value="ROLE_USER"
+                {% if 'ROLE_USER' in form.vars.value.roles %}checked{% endif %}></td>
+            </tr>
+            <tr>
+                <td>Administrateur</td>
+                <td><input type="checkbox" name="user[roles][]" value="ROLE_ADMIN"
+                {% if 'ROLE_ADMIN' in form.vars.value.roles %}checked{% endif %}></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-group">
+        <table class="verify-table">
+            <thead>
+                <tr>
+                    <th>Compte Vérifié</th>
+                    <th>Sélection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ce compte est-il vérifié ?</td>
+                    <td>{{ form_widget(form.isVerified) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.purchasedCursus, "Cursus achetés") }}
+        {{ form_widget(form.purchasedCursus) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.purchasedLessons, "Leçons achetées") }}
+        {{ form_widget(form.purchasedLessons) }}
+    </div>
+
+    <button type="submit" class="btn-userAdmin btn-update">Enregistrer</button>
+
+    {{ form_end(form, {'render_rest': false}) }}
+</div>

@@ -10,9 +10,10 @@
     padding: 2rem;
     text-align: center;
 }
-h1{
+.title-home{
     margin: 0 0 2rem 0;
     text-align: center;
+    color: #384050;
 }
 
 .text-home {
@@ -22,7 +23,7 @@ h1{
 .btn-home{
     width: 25%;
     background-color: #00497c;
-    color: #fff;
+    color: #f1f8fc;
     margin-top: 1rem;
     padding: 4px 8px;
     border-radius: 8px;

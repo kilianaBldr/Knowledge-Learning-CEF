@@ -16,6 +16,7 @@ class LessonController extends AbstractController
     {
         // Vérifie si l'utilisateur est connecté
         if (!$this->getUser()) {
+            dd($user->getRoles());
             $this->addFlash('error', 'Vous devez être connecté pour accéder à cette leçon.');
             return $this->redirectToRoute('app_login');
         }

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cursus{% endblock %}
+
+{% block body %}
+    <div class="admin-container">
+        <h1 class="admin-title">Liste des Cursus</h1>
+        <a href="{{ path('admin_cursus_new') }}" class="create-button">+ Créer un nouveau Cursus</a>
+
+        
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Thème associé</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cursus in cursusList %}
+                    <tr>
+                        <td>{{ cursus.name }}</td>
+                        <td>{{ cursus.theme.name }}</td>
+                        <td>
+                            <a href="{{ path('admin_cursus_edit', {id: cursus.id}) }}" class="action-link">Modifier</a>
+                            <a href="{{ path('admin_cursus_delete', {id: cursus.id}) }}" class="btn-userAdmin btn-delete">Supprimer</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">Aucun cursus trouvé.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <a href="{{ path('admin_formation_dashboard') }}" class="btn-back-admin">Retour</a>
+    </div>
+{% endblock %}

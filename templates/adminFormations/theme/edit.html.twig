@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Thème{% endblock %}
+
+{% block body %}
+
+    <h1 class="admin-title">Modifier le Thème</h1>
+
+    <div class="admin-dashboard-container">
+        {{ include('adminFormations/theme/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+        <a href="{{ path('admin_theme_index') }}" class="btn-back-admin">Retour à la liste</a>
+    </div>
+
+{% endblock %}

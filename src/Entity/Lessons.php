@@ -26,6 +26,9 @@ class Lessons
     #[ORM\Column(length: 255)]
     private ?string $videoFile = null;
 
+    #[ORM\Column(type: 'text')]
+    private ?string $content = null;
+
     #[ORM\Column(type: 'float')]
     private ?float $price = null;
 
@@ -93,6 +96,17 @@ class Lessons
     public function setVideoFile(string $videoFile): static
     {
         $this->videoFile = $videoFile;
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(?string $content): self
+    {
+        $this->content = $content;
         return $this;
     }
 

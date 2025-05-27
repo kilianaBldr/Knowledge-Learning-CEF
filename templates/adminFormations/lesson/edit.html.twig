@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une Leçon{% endblock %}
+
+{% block body %}
+    <div class="admin-container">
+        <h1 class="admin-title">Modifier une Leçon</h1>
+
+        {{ include('adminFormations/lesson/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <a href="{{ path('admin_lesson_index', { cursusId: form.vars.data.cursus.id }) }}" class="btn-back">Retour</a>
+    </div>
+{% endblock %}

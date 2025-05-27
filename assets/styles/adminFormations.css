@@ -1,0 +1,26 @@
+/* 
+    adminFormations/Page: lesson (show.html.twig)
+*/
+.lesson-profile {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f1f8fc;
+    border-radius: 8px;
+}
+
+.lesson-profile strong {
+    color: #6667ab;
+}
+
+.lesson-profile video {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #6667ab;
+    border-radius: 6px;
+}
+.lesson-text{
+    text-align: center;
+}

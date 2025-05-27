@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Administrateur{% endblock %}
+
+{% block body %}
+    <div class="admin-dashboard-container">
+        <h1 class="admin-title">Espace Administrateur</h1>
+        <p class="admin-subtitle">Bienvenue sur le tableau de bord de l'administration.</p>
+
+        <a href="{{ path('admin_user_dashboard') }}" class="btn-admin-dashboard">Gérer les Utilisateurs</a>
+        <a href="{{ path('admin_formation_dashboard') }}" class="btn-admin-dashboard">Gérer les Formations</a>
+        
+    </div>
+{% endblock %}

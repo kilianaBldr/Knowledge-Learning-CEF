@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Cursus{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau Cursus</h1>
+    {{ include('adminFormations/cursus/_form.html.twig', {'button_label': 'Créer'}) }}
+    <a href="{{ path('admin_cursus_index') }}" class="btn-back">Retour à la Liste des Cursus</a>
+{% endblock %}

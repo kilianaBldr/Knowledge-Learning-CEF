@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Thème{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveu thème</h1>
+    {{ include('adminFormations/theme/_form.html.twig', {'button_label': 'Créer'}) }}
+    <a href="{{ path('admin_theme_index') }}">Retour à la liste</a>
+{% endblock %}

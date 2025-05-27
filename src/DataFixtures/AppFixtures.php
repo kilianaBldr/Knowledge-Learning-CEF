@@ -86,6 +86,17 @@ class AppFixtures extends Fixture
                 ->setTheme($theme)
                 ->setPrice(array_sum(array_column($lessonsList, 1)));
             $manager->persist($cursus);
+            
+            $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vivamus tellus tortor, tempor non vehicula vitae, vestibulum at nisi.
+            Donec nibh nulla, fermentum ac risus id, blandit suscipit magna.
+            Sed laoreet lorem quis accumsan faucibus. Suspendisse augue ligula, pretium vel bibendum vitae, consectetur ut ex.
+            Mauris tincidunt sit amet tellus eu tristique. Donec iaculis massa sit amet malesuada ullamcorper.
+            Sed massa dolor, faucibus sit amet massa at, facilisis dignissim sem. Fusce porta ac eros semper dictum.
+            Cras ac tortor quis justo interdum sagittis eget vel quam. Phasellus mauris elit, condimentum eget ultrices sit amet, egestas non mi. 
+            Pellentesque aliquet elit justo, id mollis nisi feugiat et. Nunc et erat ex. Mauris rutrum a eros sed tincidunt. 
+            Nam efficitur quam orci. Nam aliquam, quam non rhoncus aliquam, metus felis laoreet tortor, ut convallis ex mauris vel sapien. Donec pellentesque tincidunt augue. 
+            Suspendisse dui erat, placerat non turpis nec, convallis mollis orci.";
 
             foreach ($lessonsList as [$name, $price, $description, $file]) {
                 $lesson = new Lessons();
@@ -93,7 +104,8 @@ class AppFixtures extends Fixture
                     ->setPrice($price)
                     ->setDescription($description)
                     ->setVideoFile($file)
-                    ->setCursus($cursus);
+                    ->setCursus($cursus)
+                    ->setContent($lorem);
                 $manager->persist($lesson);
             }
         }

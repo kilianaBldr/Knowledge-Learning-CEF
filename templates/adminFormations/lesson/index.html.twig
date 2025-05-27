@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leçons{% endblock %}
+
+{% block body %}
+    <h1 class="admin-title">Liste des Leçons</h1>
+
+    <a href="{{ path('admin_lesson_new') }}" class="create-button">+ Créer une nouvelle Leçon</a>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Thème</th>
+                <th>Cursus</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lesson in lessons %}
+                <tr>
+                    <td>{{ lesson.cursus.theme.name }}</td>
+                    <td>{{ lesson.cursus.name  }}</td>
+                    <td>{{ lesson.name  }}</td>
+                    <td>{{ lesson.description }}</td>
+                    <td>{{ lesson.price }} €</td>
+                    <td>
+                        <a href="{{ path('admin_lesson_show', {id: lesson.id}) }}" class="action-link">Voir</a>
+                        <a href="{{ path('admin_lesson_edit', {id: lesson.id}) }}" class="action-link">Modifier</a>
+                        <a href="{{ path('admin_lesson_delete', {id: lesson.id}) }}" class="btn-userAdmin btn-delete">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune leçon trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('admin_formation_dashboard') }}" class="btn-back-admin">Retour</a>
+{% endblock %}
