@@ -1,19 +1,39 @@
-{{ form_start(form) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.cursus) }}
-    {{ form_row(form.description) }}
-    {% if lesson.videoFile %}
-        <div class="current-video">
-            <p><strong>Vidéo actuelle :</stong></p>
-            <video width="500" controls>
-                <source src="{{ asset(lesson.videoFile) }}" type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo.
-            </video>
+<div class="lesson-form-wrapper">
+    {{ form_start(form) }}
+        <div class="lesson-form-group">
+            {{ form_label(form.name, 'Nom de la leçon') }}
+            {{ form_widget(form.name) }}
         </div>
-    {% endif %}
-    {{ form_row(form.videoFile) }}
-    {{ form_row(form.content) }}
-    {{ form_row(form.price) }}
-    
-    <button class="btn-userAdmin btn-update">{{ button_label }}</button>
-{{ form_end(form) }}
+        <div class="lesson-form-group">
+            {{ form_label(form.cursus, 'Cursus associé') }}
+            {{ form_widget(form.cursus) }}
+        </div>
+        <div class="lesson-form-group">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_widget(form.description) }}
+        </div>
+        {% if lesson.videoFile %}
+            <div class="current-video">
+                <p><strong>Vidéo actuelle :</stong></p>
+                <video width="500" controls>
+                    <source src="{{ asset(lesson.videoFile) }}" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+        {% endif %}
+        <div class="lesson-form-group">
+            {{ form_label(form.videoFile, 'Fichier vidéo') }}
+            {{ form_widget(form.videoFile) }}
+        </div>
+        <div class="lesson-form-group">
+                {{ form_label(form.content, 'Contenu complet') }}
+                {{ form_widget(form.content) }}
+        </div>
+        <div class="lesson-form-group">
+            {{ form_label(form.price, 'Prix (€)') }}
+            {{ form_widget(form.price) }}
+        </div>
+                
+        <button class="btn-userAdmin btn-update">{{ button_label }}</button>
+    {{ form_end(form) }}
+</div>

@@ -10,7 +10,7 @@
     padding: 2rem;
     text-align: center;
 }
-.title-home{
+h1 {
     margin: 0 0 2rem 0;
     text-align: center;
     color: #384050;
@@ -35,4 +35,18 @@
 .btn-home:hover{
     background-color: #384050;
     color: white;
+}
+
+/* Responsive tablette */
+@media screen and (max-width: 1024px) {
+    .home {
+        max-width: 90%;
+    }
+}
+
+/* Responsive mobile */
+@media screen and (max-width: 768px) {
+    .btn-home {
+            width: 100%;
+    }
 }

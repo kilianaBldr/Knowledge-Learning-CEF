@@ -24,3 +24,56 @@
 .lesson-text{
     text-align: center;
 }
+
+/* 
+    adminFormations/lesson/ _form (_form.html.twig)
+*/
+
+.lesson-form-wrapper {
+max-width: 800px;
+margin: 2rem auto;
+padding: 2rem;
+background-color: #f1f8fc;
+border-radius: 12px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-form-wrapper h1 {
+text-align: center;
+margin-bottom: 2rem;
+font-size: 1.8rem;
+color: #333;
+}
+
+.lesson-form-group {
+margin-bottom: 1.5rem;
+}
+
+.lesson-form-group label {
+display: block;
+font-weight: bold;
+margin-bottom: 0.5rem;
+color: #444;
+}
+
+.lesson-form-group input,
+.lesson-form-group select,
+.lesson-form-group textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 8px;
+font-size: 1rem;
+background-color: #fff;
+}
+
+.current-video {
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.current-video video {
+max-width: 100%;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
