@@ -23,19 +23,19 @@
             <tbody>
             {% for user in users %}
                 <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    <td>{{ user.isVerified ? 'Oui' : 'Non' }}</td>
-                    <td>{{ user.createdAt ? user.createdAt|date('d/m/Y H:i') : '' }}</td>
-                    <td>{{ user.updatedAt ? user.updatedAt|date('d/m/Y H:i') : '' }}</td>
-                    <td>
+                    <td data-label="Identifiant">{{ user.id }}</td>
+                    <td data-label="E-mail">{{ user.email }}</td>
+                    <td data-label="Nom">{{ user.name }}</td>
+                    <td data-label="Rôles">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td data-label="Vérifié">{{ user.isVerified ? 'Oui' : 'Non' }}</td>
+                    <td data-label="Crée le">{{ user.createdAt ? user.createdAt|date('d/m/Y H:i') : '' }}</td>
+                    <td data-label="Mis à jour">{{ user.updatedAt ? user.updatedAt|date('d/m/Y H:i') : '' }}</td>
+                    <td data-label="Actions">
                         <a href="{{ path('admin_user_show', {'id': user.id}) }}" class="action-link">Voir</a>
                         <a href="{{ path('admin_user_edit', {'id': user.id}) }}" class="action-link">Modifier</a>
                         <form method="post" action="{{ path('admin_user_delete', {id: user.id}) }}" style="display:inline-block;" onsubmit="return confirm('Confirmer la suppression ?');">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-                            <button class="btn-userAdmin btn-delete">Supprimer</button>
+                            <button class="btn-delete">Supprimer</button>
                         </form>
                     </td>
                 </tr>

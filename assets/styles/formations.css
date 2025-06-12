@@ -1,13 +1,14 @@
-.formation-container{
+.formation-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
-    margin: 2rem;
+    gap: 20px;
+    margin: 2rem auto;
+    max-width: 1200px;
 }
 
-.formation-card{
-    width: 20%;
+/* Style de chaque carte */
+.formation-card {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -19,48 +20,43 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    width: 23%;
 }
+
+/* Survol */
 .formation-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.formation-card h2{
+.formation-card h2 {
     margin-bottom: 15px;
 }
-.progress_theme-container {
-    margin: 10px 0;
-    width: 50%;
-}
 
-.progress_theme-bar {
-    background-color: #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 20px;
-}
-
-.progress_theme-fill {
-    background-color: #82b864;
-    height: 100%;
-}
-
-.progress_theme-text {
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-}
-
-
-.formation-card .btn-formation{
+/* Bouton */
+.formation-card .btn-formation {
     background-color: #00497c;
-    color: #f1f8fc;
-    padding: 5px 10px;
+    color: #fff;
+    padding: 6px 12px;
     border-radius: 6px;
     text-decoration: none;
+    margin-top: 10px;
 }
 
-.formation-card .btn-formation:hover{
-    background-color: #384050;
+.formation-card .btn-formation:hover {
+    background-color: #003456;
+}
+
+/* Responsive tablette (2 colonnes) */
+@media screen and (max-width: 1024px) {
+    .formation-card {
+        width: 45%;
+    }
+}
+
+/* Responsive mobile (1 colonne) */
+@media screen and (max-width: 768px) {
+    .formation-card {
+        width: 90%;
+    }
 }

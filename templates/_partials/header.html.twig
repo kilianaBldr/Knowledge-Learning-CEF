@@ -1,21 +1,29 @@
-<header>
-        <figure>
-            <img src="{{ asset('images/logo.jpg') }}" alt="Logo Knowledge">
-            <figcaption>Formez-vous à votre rythme et obtenez vos certifications Knowledge Learning</figcaption>
-        </figure>
-        <nav>
-            <a href="{{ path('app_home') }}">Accueil</a>
-            <a href="{{ path('app_formations') }}">Formations</a>
+<header class="site-header">
+
+    <div class="header-top">
+        <img src="{{ asset('images/logo.jpg') }}" alt="Logo Knowledge" class="logo">
+        <figcaption>Formez-vous à votre rythme et obtenez vos certifications Knowledge Learning</figcaption>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_formations') }}">Formations</a></li>
+
             {% if  is_granted('IS_AUTHENTICATED_FULLY')%}
-                <a href="{{ path('app_certifications') }}">Certificats</a>
-                <a href="{{ path('app_cart_show') }}">Panier</a>
+                <li><a href="{{ path('app_certifications') }}">Certificats</a></li>
+                <li><a href="{{ path('app_cart_show') }}">Panier</a></li>
                 {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('admin_dashboard') }}">Admin</a>
+                    <li><a href="{{ path('admin_dashboard') }}">Admin</a></li>
                 {% endif %}
-                <a href="{{ path('app_logout') }}">Déconnexion</a>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
             {% else %}
-            <a href="{{ path('app_login') }}">Se Connecter</a>
-            <a href="{{ path('app_register') }}">S'inscrire</a>
+                <li><a href="{{ path('app_login') }}">Se Connecter</a></li>
+                <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
             {% endif %}
-        </nav>
-    </header>
+        </ul>
+    </nav>
+</header>
