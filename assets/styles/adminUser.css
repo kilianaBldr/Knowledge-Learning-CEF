@@ -107,7 +107,6 @@
 
 .action-link {
     display: flex;
-    width: 50%;
     align-items: center;
     text-align: center;
     color: #0074c7;
@@ -383,7 +382,6 @@
     transition: background 0.3s ease;
     align-items: center;
     justify-content: center;
-    width: 50%;
     margin: 1rem auto;
 }
 
@@ -475,6 +473,10 @@
     }
 
     .admin-table .btn-delete {
+        width: 100%;
+    }
+
+    .action-link {
         width: 100%;
     }
 
@@ -572,6 +574,10 @@
         padding: 0.7rem;
     }
 
+    .btn-back {
+        width: 30%;
+    }
+
 
 }
 
@@ -653,4 +659,12 @@
     .action-buttons .btn-userAdmin {
         width: 90%;
     }
+
+    /*
+    adminUser/PAGE : Modifier Utilisateur (edit.html.twig)
+    */
+    .btn-back {
+        width: 100%;
+    }
+
 }

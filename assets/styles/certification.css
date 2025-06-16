@@ -1,3 +1,6 @@
+/*
+   Certification : Certifications (certifications.html.twig)
+*/
 .certif-title {
     text-align: center;
     margin: 30px 0;
@@ -11,6 +14,7 @@
     color: #777;
 }
 
+/* Conteneur des cartes */
 .certification-container {
     display: flex;
     flex-wrap: wrap;
@@ -19,29 +23,32 @@
     margin: 20px;
 }
 
+/* Carte individuelle */
 .certification-card {
     display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
-    justify-content: center;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
     background: #fdfdfd;
-    width: 25%;
+    width: 100%;
+    max-width: 300px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
 .theme-name {
-    text-align: center;
     margin: 10px 0 18px 0;
     color: #384050;
+    font-size: 1.2rem;
 }
 
+/* Barre de progression */
 .progress_certif-container {
-    margin: 10px 0;
-    width: 50%;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px auto;
 }
 
 .progress_certif-bar {
@@ -49,6 +56,7 @@
     border-radius: 10px;
     overflow: hidden;
     height: 20px;
+    width: 100%;
 }
 
 .progress_certif-fill {
@@ -60,36 +68,155 @@
     text-align: center;
     font-size: 14px;
     color: #555;
+    margin-top: 5px;
 }
 
+/* Bouton certification */
 .certif-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     background-color: #00497c;
     color: white;
     padding: 10px 15px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+    margin-top: 15px;
 }
 
 .certif-btn:hover {
     background-color: #384050;
 }
 
+/* Bouton retour */
 .back-btn {
     display: block;
     margin: 30px auto;
     text-align: center;
-    width: fit-content;
     background: #384050;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
+    width: fit-content;
 }
 
 .back-btn:hover {
     background-color: #00497c;
+}
+
+/*
+   Certification : Certifications (show.html.twig)
+*/
+
+/* Structure principale */
+.show-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Titre principal */
+.show-container h1 {
+    color: #00497c;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Carte d'information */
+.show-card {
+    background-color: #e8f1f8;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #d0dce5;
+    margin-bottom: 2rem;
+}
+
+/* Thème + nom */
+.show-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #384050;
+}
+
+.show-card p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0.7rem 0;
+}
+
+/* Date */
+.show-date {
+    font-style: italic;
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+/* Bouton retour */
+.btn-back {
+    display: inline-block;
+    background-color: #00497c;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #336a91;
+}
+
+/* -------- Responsive -------- */
+
+@media screen and (min-width: 768px) {
+
+    /*
+   Certification : Certifications (certifications.html.twig)
+    */
+    .certification-card {
+        width: 45%;
+    }
+
+    /*
+   Certification : Certifications (show.html.twig)
+    */
+    .show-container {
+        padding: 1.5rem;
+    }
+
+    .show-card h2 {
+        font-size: 1.4rem;
+    }
+
+    .show-card p {
+        font-size: 1rem;
+    }
+
+    .btn-back {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    /*
+   Certification : Certifications (certifications.html.twig)
+   */
+    .certification-card {
+        width: 25%;
+    }
+
+    .progress_certif-container {
+        max-width: 250px;
+    }
+
+
 }

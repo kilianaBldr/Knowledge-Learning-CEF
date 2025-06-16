@@ -6,6 +6,7 @@
         <title>{% block title %}Knowledge-Learning{% endblock %}</title>
         <link rel="icon" href="{{ asset('images/Favicon.jpg') }}">
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/base.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/header.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/flash.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/footer.css') }}">
@@ -17,7 +18,6 @@
             <link rel="stylesheet" href="{{ asset('styles/cursus.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/lesson.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/certification.css') }}">
-            <link rel="stylesheet" href="{{ asset('styles/show.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/panier.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/payment.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/adminUser.css') }}">
@@ -36,6 +36,12 @@
 
     <body>
         <main>
+            {% if app.user %}
+                <div class="user-info-bar">
+                    Connecté en tant que {{ app.user.name }}
+                    <a href="{{ path('app_logout')}}" class="link-logout">Se déconnecter</a>
+                </div>
+            {% endif %}
             {% block body %}{% endblock %}
         </main>
     </body>

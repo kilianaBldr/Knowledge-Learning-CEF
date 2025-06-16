@@ -11,8 +11,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * Class FormationController
+ *
+ * Responsible for displaying the list of themes and computing the user's progress
+ * (validated lessons and certification) for each theme.
+ */
 final class FormationController extends AbstractController
 {
+    /**
+     * Display all themes along with user's progress for each theme.
+     *
+     * This route gathers all themes, counts lessons, and checks how many have been validated
+     * by the currently authenticated user (via the Certification entity).
+     * If at least one lesson is validated in a theme, a progress percentage is calculated.
+     *
+     * @param ThemeRepository $themeRepository Repository to fetch all available themes.
+     * @param CertificationRepository $certRepo Repository to check validated lessons by the user.
+     * @param EntityManagerInterface $em Doctrine entity manager (not used here but kept for future logic if needed).
+     * @return Response The rendered Twig view containing all themes with progress bars.
+     *
+     * @Route('/formations', name='app_formations')
+     */
     #[Route('/formations', name: 'app_formations')]
     public function index(
         ThemeRepository $themeRepository,
@@ -28,6 +48,7 @@ final class FormationController extends AbstractController
             $totalLessons = 0;
             $validatedLessons = 0;
 
+            // Count all lessons and validated lessons
             foreach ($cursusList as $cursus) {
                 $lessons = $cursus->getLessons();
                 $totalLessons += count($lessons);
@@ -43,7 +64,7 @@ final class FormationController extends AbstractController
             }
         }
 
-        // Seulement si au moins une leçon est validée
+        // Only calculate progress if at least one lesson is validated
         if ($validatedLessons > 0) {
             $progress = $totalLessons > 0 ? round(($validatedLessons / $totalLessons) * 100) : 0;
             $isCertified = $progress === 100;

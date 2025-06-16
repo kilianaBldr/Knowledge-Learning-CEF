@@ -11,9 +11,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * Admin controller for managing User entities.
+ * Provides CRUD functionality for users in the admin panel.
+ */
 #[Route('/admin/user')]
 final class UserController extends AbstractController
 {
+     /**
+     * Display the list of all users.
+     *
+     * @Route(name="admin_user_dashboard", methods={"GET"})
+     * @param UserRepository $userRepository
+     * @return Response
+     */
     #[Route(name: 'admin_user_dashboard', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
@@ -22,6 +33,14 @@ final class UserController extends AbstractController
         ]);
     }
 
+       /**
+     * Create a new user.
+     *
+     * @Route("/new", name="admin_user_new", methods={"GET", "POST"})
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/new', name: 'admin_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -42,6 +61,13 @@ final class UserController extends AbstractController
         ]);
     }
 
+     /**
+     * Show a single user.
+     *
+     * @Route("/{id}", name="admin_user_show", methods={"GET"})
+     * @param User $user
+     * @return Response
+     */
     #[Route('/{id}', name: 'admin_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
@@ -50,6 +76,15 @@ final class UserController extends AbstractController
         ]);
     }
 
+     /**
+     * Edit an existing user.
+     *
+     * @Route("/{id}/edit", name="admin_user_edit", methods={"GET", "POST"})
+     * @param Request $request
+     * @param User $user
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/{id}/edit', name: 'admin_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
@@ -68,6 +103,15 @@ final class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * Delete a user after CSRF token validation.
+     *
+     * @Route("/{id}", name="admin_user_delete", methods={"POST"})
+     * @param Request $request
+     * @param User $user
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/{id}', name: 'admin_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {

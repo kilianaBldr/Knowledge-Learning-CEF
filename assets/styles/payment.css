@@ -1,5 +1,7 @@
-
-.success-stripe{
+/*
+    Payment/Success : Succès payment (success.html.twig)
+*/
+.success-stripe {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,6 +9,25 @@
     height: 40vh;
 }
 
+.btn-success {
+    text-decoration: none;
+    background-color: #00497c;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.btn-success:hover {
+    background-color: #384050;
+
+}
+
+/*
+    Payment/Error : Error payment (error.html.twig)
+*/
 .error-stripe {
     display: flex;
     flex-direction: column;
@@ -16,7 +37,7 @@
 
 }
 
-.error{
+.error {
     margin: 0;
     color: #384050;
 }
