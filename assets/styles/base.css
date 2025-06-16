@@ -1,0 +1,23 @@
+.user-info-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f1f8fc;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #384050;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.user-info-bar a.link-logout {
+    color: #0074c7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.user-info-bar a.link-logout:hover {
+    color: #384050;
+    text-decoration: underline;
+}

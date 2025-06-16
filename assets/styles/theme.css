@@ -40,24 +40,24 @@
     margin-bottom: 20px;
 }
 
-.progress_cursus-container {
+.progress_theme-container {
     margin: 10px 0;
     width: 50%;
 }
 
-.progress_cursus-bar {
+.progress_theme-bar {
     background-color: #eee;
     border-radius: 10px;
     overflow: hidden;
     height: 20px;
 }
 
-.progress_cursus-fill {
+.progress_theme-fill {
     background-color: #82b864;
     height: 100%;
 }
 
-.progress_cursus-text {
+.progress_theme-text {
     text-align: center;
     font-size: 14px;
     color: #555;

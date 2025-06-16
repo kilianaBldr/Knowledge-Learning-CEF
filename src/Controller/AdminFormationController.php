@@ -17,11 +17,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-
+/**
+ * AdminFormationController
+ *
+ * Controller dedicated to managing themes, cursus, and lessons in the admin panel.
+ */
 #[Route('/admin/formation')]
 final class AdminFormationController extends AbstractController
 {
-    // LISTE DES THEMES
+    /**
+     * Displays a list of all themes.
+     */
     #[Route('/themes', name: 'admin_theme_index')]
     public function listThemes(EntityManagerInterface $em): Response
     {
@@ -32,7 +38,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
-    // AJOUTER UN NOUVEAU THEME
+    /**
+     * Handles creation of a new theme.
+     */
     #[Route('/themes/new', name: 'admin_theme_new')]
     public function newTheme(Request $request, EntityManagerInterface $em): Response
     {
@@ -53,7 +61,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
-    // MODIFIER UN THEME
+    /**
+     * Edits an existing theme.
+     */
     #[Route('/themes/{id}/edit', name: 'admin_theme_edit')]
     public function editTheme(Theme $theme, Request $request, EntityManagerInterface $em): Response
     {
@@ -73,7 +83,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
-    // SUPPRIMER UN THEME
+    /**
+     * Deletes a theme securely via CSRF token.
+     */
     #[Route('/themes/{id}/delete', name: 'admin_theme_delete', methods: ['POST'])]
     public function deleteTheme(Theme $theme, Request $request, EntityManagerInterface $em): Response
     {
@@ -85,7 +97,9 @@ final class AdminFormationController extends AbstractController
         return $this->redirectToRoute('admin_theme_index');
     }
 
-     // LISTE DES CURSUS
+    /**
+     * Displays a list of all cursus.
+     */
     #[Route('/cursus', name: 'admin_cursus_index')]
     public function listCursus(EntityManagerInterface $em): Response
     {
@@ -96,6 +110,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
+    /**
+     * Creates a new cursus.
+     */
     #[Route('/cursus/new', name: 'admin_cursus_new')]
     public function newCursus(Request $request, EntityManagerInterface $em): Response
     {
@@ -116,6 +133,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
+    /**
+     * Edits a specific cursus.
+     */
     #[Route('/cursus/{id}/edit', name: 'admin_cursus_edit')]
     public function editCursus(Cursus $cursus, Request $request, EntityManagerInterface $em): Response
     {
@@ -134,6 +154,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
+    /**
+     * Deletes a cursus.
+     */
     #[Route('/cursus/{id}/delete', name: 'admin_cursus_delete')]
     public function deleteCursus(Cursus $cursus, EntityManagerInterface $em): Response
     {
@@ -145,7 +168,9 @@ final class AdminFormationController extends AbstractController
         return $this->redirectToRoute('admin_cursus_index', ['themeId' => $themeId]);
     }
 
-    // LISTE DES LEÇONS PAR CURSUS
+    /**
+     * Displays all lessons.
+     */
     #[Route('/lessons', name: 'admin_lesson_index')]
     public function listLessons(EntityManagerInterface $em): Response
     {
@@ -156,11 +181,12 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
-     // AJOUTER UNE LEÇON
+    /**
+     * Creates a new lesson, handles video upload.
+     */
     #[Route('/lesson/new', name: 'admin_lesson_new')]
-    public function newLesson( Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function newLesson(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
-        
         $lesson = new Lessons();
 
         $form = $this->createForm(LessonTypeForm::class, $lesson);
@@ -194,7 +220,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
-    // MODIFIER UNE LEÇON
+    /**
+     * Edits an existing lesson and replaces the video if a new file is uploaded.
+     */
     #[Route('/lesson/{id}/edit', name: 'admin_lesson_edit')]
     public function editLesson(int $id, Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
@@ -203,8 +231,6 @@ final class AdminFormationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            /** @var UploadedFile $videoFile */
             $videoFile = $form->get('videoFile')->getData();
 
             if ($videoFile) {
@@ -234,7 +260,9 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 
-    // SUPPRIMER UNE LEÇON
+    /**
+     * Deletes a lesson.
+     */
     #[Route('/lesson/{id}/delete', name: 'admin_lesson_delete')]
     public function deleteLesson(int $id, EntityManagerInterface $em): Response
     {
@@ -247,7 +275,9 @@ final class AdminFormationController extends AbstractController
         return $this->redirectToRoute('admin_lesson_index', ['cursusId' => $cursusId]);
     }
 
-    //VOIR LA LEÇON
+    /**
+     * Displays details of a specific lesson.
+     */
     #[Route('/lesson/{id}', name: 'admin_lesson_show')]
     public function showLesson(Lessons $lesson): Response 
     {
@@ -256,4 +286,3 @@ final class AdminFormationController extends AbstractController
         ]);
     }
 }
-
